@@ -1,0 +1,574 @@
+/* ==========================================
+   CONFIGURAÇÃO DE TEMAS
+   ========================================== */
+:root[data-theme="dark"] {
+    --bg-principal: #0b111e;
+    --bg-sidebar: #121926;
+    --bg-cards: #1f293d;
+    --texto-principal: #ffffff;
+    --texto-secundario: #9ca3af;
+    --border-ui: rgba(255, 255, 255, 0.08);
+    --verde-neon: #18ff90;
+    --azul-tech: #2effff;
+    --hover-menu: rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="light"] {
+    --bg-principal: #f3f4f6;
+    --bg-sidebar: #ffffff;
+    --bg-cards: #ffffff;
+    --texto-principal: #1f2937;
+    --texto-secundario: #6b7280;
+    --border-ui: rgba(0, 0, 0, 0.08);
+    --verde-neon: #059669;
+    --azul-tech: #0284c7;
+    --hover-menu: rgba(0, 0, 0, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    overflow-x: hidden;
+}
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR LATERAL
+   ========================================== */
+.sidebar {
+    width: 260px;
+    background-color: var(--bg-sidebar);
+    border-right: 2px solid var(--border-ui);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--texto-principal);
+    text-decoration: none;
+    margin-bottom: 40px;
+    padding-left: 12px;
+}
+
+.sidebar-logo span {
+    color: var(--verde-neon);
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border: none;
+    background: none;
+    color: var(--texto-secundario);
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.menu-item:hover {
+    background-color: var(--hover-menu);
+    color: var(--texto-principal);
+}
+
+.menu-item.active {
+    background-color: rgba(46, 255, 255, 0.1);
+    color: var(--azul-tech);
+    border: 1px solid rgba(46, 255, 255, 0.2);
+}
+
+.tag-dev {
+    font-size: 0.65rem;
+    background: #374151;
+    color: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-left: auto;
+}
+
+/* CONTAINER DE CONTEÚDO */
+.main-content {
+    margin-left: 260px;
+    flex-grow: 1;
+    padding: 40px 60px;
+    max-width: 1100px;
+}
+
+.app-tab {
+    display: none;
+}
+
+.app-tab.active {
+    display: block;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--verde-neon), var(--azul-tech));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.tab-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.tab-subtitle {
+    color: var(--texto-secundario);
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+}
+
+/* ==========================================
+   ABA 1: APRENDER
+   ========================================== */
+.tab-header-banner {
+    background: linear-gradient(135deg, #a21caf, #6b21a8);
+    padding: 24px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 32px;
+}
+
+.banner-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.classroom-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    background: var(--bg-cards);
+    border: 1px solid var(--border-ui);
+    padding: 32px;
+    border-radius: 24px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.classroom-info h3 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+}
+
+.classroom-info p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.classroom-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid var(--border-ui);
+    padding-left: 32px;
+    text-align: center;
+}
+
+.xp-reward {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--verde-neon);
+}
+
+.xp-label {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+    margin-bottom: 24px;
+}
+
+.btn-complete {
+    background: var(--verde-neon);
+    color: #000;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* VITRINE DE CURSOS */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.course-card {
+    background: var(--bg-cards);
+    border: 1px solid var(--border-ui);
+    padding: 24px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.course-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.course-card p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.btn-course {
+    background: var(--hover-menu);
+    border: 1px solid var(--border-ui);
+    color: var(--texto-principal);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-course:hover {
+    background: var(--azul-tech);
+    color: #000;
+}
+
+/* RECURSO BLOQUEADO (PRATICAR E LIGAS) */
+.locked-container {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--bg-cards);
+    border: 1px solid var(--border-ui);
+    border-radius: 24px;
+}
+
+.locked-container p {
+    color: var(--texto-secundario);
+    max-width: 500px;
+    margin: 12px auto 24px auto;
+}
+
+.dev-badge-large {
+    display: inline-block;
+    background: #ef4444;
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 6px 16px;
+    border-radius: 8px;
+}
+
+/* MISSÕES */
+.missoes-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.missao-card {
+    background: var(--bg-cards);
+    border: 1px solid var(--border-ui);
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.missao-progress-container {
+    text-align: right;
+    width: 200px;
+}
+
+.missao-progress-container span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--texto-secundario);
+}
+
+.missao-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.missao-fill {
+    height: 100%;
+    background: var(--azul-tech);
+}
+
+/* PERFIL E SEÇÕES INTERNAS */
+.profile-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.profile-user-card {
+    background: var(--bg-cards);
+    border: 1px solid var(--border-ui);
+    padding: 32px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.avatar-large {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.profile-user-info .username {
+    color: var(--texto-secundario);
+    font-weight: 500;
+}
+
+.profile-user-info .date {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+    margin-top: 4px;
+}
+
+.profile-settings-box {
+    margin-left: auto;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid var(--border-ui);
+    min-width: 260px;
+}
+
+.profile-settings-box h3 {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    margin-bottom: 12px;
+}
+
+.settings-control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* SELETOR TOGGLE SWITCH */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4b5563;
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: var(--verde-neon);
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+.stats-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stat-cube {
+    background: var(--bg-cards);
+    border: 1px solid var(--border-ui);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.cube-icon {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--texto-secundario);
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.text-streak h3 {
+    color: #ff477e;
+    font-size: 1.8rem;
+}
+
+.text-xp h3 {
+    color: var(--verde-neon);
+    font-size: 1.8rem;
+}
+
+.text-lvl h3 {
+    color: var(--azul-tech);
+    font-size: 1.8rem;
+}
+
+/* SEÇÃO DE CONQUISTAS COLETADAS */
+.profile-achievements-section {
+    margin-top: 24px;
+}
+
+.section-sub-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.badges-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.achievement-item {
+    background: var(--bg-cards);
+    border: 1px solid var(--border-ui);
+    padding: 16px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.achievement-badge {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.achievement-details h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.achievement-details p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.achievement-item.locked {
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+/* MEDIA QUERIES (RESPONSIVIDADE) */
+@media (max-width: 968px) {
+    .classroom-container {
+        grid-template-columns: 1fr;
+    }
+
+    .classroom-sidebar {
+        border-left: none;
+        padding-left: 0;
+        padding-top: 24px;
+    }
+
+    .profile-user-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-settings-box {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .stats-panel-grid {
+        grid-template-columns: 1fr;
+    }
+}

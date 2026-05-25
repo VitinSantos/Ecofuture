@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFuture - Plataforma de Aprendizado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <a href="#" class="sidebar-logo" onclick="switchTab('aprender')">
+                Eco<span>Future</span>
+            </a>
+            
+            <nav class="sidebar-menu">
+                <button class="menu-item active" id="btn-aprender" onclick="switchTab('aprender')">
+                    Aprender
+                </button>
+                <button class="menu-item" id="btn-cursos" onclick="switchTab('cursos')">
+                    Cursos
+                </button>
+                <button class="menu-item" id="btn-praticar" onclick="switchTab('praticar')">
+                    Praticar <span class="tag-dev">Breve</span>
+                </button>
+                <button class="menu-item" id="btn-ligas" onclick="switchTab('ligas')">
+                    Ligas <span class="tag-dev">Breve</span>
+                </button>
+                <button class="menu-item" id="btn-missoes" onclick="switchTab('missoes')">
+                    Missões
+                </button>
+                <button class="menu-item" id="btn-perfil" onclick="switchTab('perfil')">
+                    Perfil
+                </button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <div id="tab-aprender" class="app-tab active">
+                <div class="tab-header-banner">
+                    <span class="banner-subtitle">Trilha Atual</span>
+                    <h1 id="currentCourseTitle">Matemática Verde</h1>
+                </div>
+
+                <div class="classroom-container">
+                    <div class="classroom-main">
+                        <div class="video-wrapper">
+                            <iframe id="lessonVideo" src="https://www.youtube.com/embed/S7Ipfx8gD7A" title="EcoFuture Player" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="classroom-info">
+                            <h3 id="lessonTitle">Matemática Verde: Introdução à Eficiência</h3>
+                            <p id="lessonDesc">Aprenda a calcular o impacto e consumo energético residencial de forma inteligente.</p>
+                        </div>
+                    </div>
+                    <div class="classroom-sidebar">
+                        <div class="xp-reward">+120 XP</div>
+                        <div class="xp-label">Bônus de Conclusão Diária</div>
+                        <button class="btn-complete" onclick="completeLesson()">Concluir Aula</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-cursos" class="app-tab">
+                <h2 class="tab-title">Escolha sua Trilha Ecológica</h2>
+                <p class="tab-subtitle">Selecione uma trilha abaixo para carregar seu conteúdo na aba Aprender.</p>
+                
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <span class="course-badge" style="color: #ffb300;">EXATAS</span>
+                        <h3>Matemática Verde</h3>
+                        <p>Calcule pegadas de carbono, eficiência energética e matrizes renováveis.</p>
+                        <button class="btn-course" onclick="selectCourse('Matemática Verde', 'https://www.youtube.com/embed/rnE9-yAViLs', 'Aprenda a calcular o impacto e consumo energético residencial de forma inteligente.')">Selecionar Trilha</button>
+                    </div>
+                    
+                    <div class="course-card">
+                        <span class="course-badge" style="color: #00e5ff;">IDIOMAS</span>
+                        <h3>Inglês Ambiental</h3>
+                        <p>Domine os termos internacionais de ESG, Climate Techs e acordos globais.</p>
+                        <button class="btn-course" onclick="selectCourse('Inglês Ambiental', 'https://www.youtube.com/embed/cr83nZOnW_4', 'Aprenda o vocabulário essencial do mercado internacional de carbono.')">Selecionar Trilha</button>
+                    </div>
+                    <div class="course-card">
+                        <span class="course-badge" style="color: #d500f9;">DEV</span>
+                        <h3>TI Sustentável</h3>
+                        <p>Desenvolva softwares otimizados (Green Coding) e aprenda sobre e-waste.</p>
+                        <button class="btn-course" onclick="selectCourse('TI Sustentável', 'https://www.youtube.com/embed/S7Ipfx8gD7A', 'Entenda como arquiteturas em nuvem modernas reduzem emissões de carbono.')">Selecionar Trilha</button>
+                    </div>
+                    <div class="course-card">
+                        <span class="course-badge" style="color: #00e676;">BIOMA</span>
+                        <h3>Ciências da Terra</h3>
+                        <p>Estude ecossistemas, biodiversidade e técnicas avançadas de reciclagem.</p>
+                        <button class="btn-course" onclick="selectCourse('Ciências da Terra', 'https://www.youtube.com/embed/cr83nZOnW_4', 'Aprofunde-se nas dinâmicas de regeneração de solos florestais.')">Selecionar Trilha</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-praticar" class="app-tab">
+                <div class="locked-container">
+                    <h2>Prática com Inteligência Artificial</h2>
+                    <p>O sistema gerará questionários customizados em tempo real de acordo com a sua trilha activa.</p>
+                    <div class="dev-badge-large">MÓDULO EM DESENVOLVIMENTO</div>
+                </div>
+            </div>
+
+            <div id="tab-ligas" class="app-tab">
+                <div class="locked-container">
+                    <h2>Competições e Ligas Semanais</h2>
+                    <p>Suba de ranking e dispute posições com outros alunos de acordo com a experiência acumulada nos seus cursos.</p>
+                    <div class="dev-badge-large">MÓDULO EM DESENVOLVIMENTO</div>
+                </div>
+            </div>
+
+            <div id="tab-missoes" class="app-tab">
+                <h2 class="tab-title">Missões Diárias</h2>
+                <p class="tab-subtitle">Acelere seu ganho de nível concluindo tarefas específicas.</p>
+                
+                <div class="missoes-stack">
+                    <div class="missao-card">
+                        <div class="missao-info">
+                            <h4>Ganhe 20 XP</h4>
+                            <p>Assista a vídeos e interaja com os módulos ativos.</p>
+                        </div>
+                        <div class="missao-progress-container">
+                            <span id="missaoXpText">10 / 20 XP</span>
+                            <div class="missao-bar"><div class="missao-fill" id="missaoBarFill" style="width: 50%;"></div></div>
+                        </div>
+                    </div>
+                    <div class="missao-card">
+                        <div class="missao-info">
+                            <h4>Foco Ecológico</h4>
+                            <p>Conclua qualquer lição ativa na aba de aprendizado.</p>
+                        </div>
+                        <div class="missao-progress-container">
+                            <span id="missaoLessonText">0 / 1</span>
+                            <div class="missao-bar"><div class="missao-fill" id="missaoLessonFill" style="width: 0%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-perfil" class="app-tab">
+                <div class="profile-layout">
+                    
+                    <div class="profile-user-card">
+                        <div class="avatar-large">[IMG]</div>
+                        <div class="profile-user-info">
+                            <h2>EcoEstudante</h2>
+                            <p class="username">@eco_estudante_2026</p>
+                            <p class="date">Membro desde Maio de 2026</p>
+                        </div>
+                        
+                        <div class="profile-settings-box">
+                            <h3>Configurações do Sistema</h3>
+                            <div class="settings-control-row">
+                                <span>Modo Claro</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="themeToggleCheck">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-panel-grid">
+                        <div class="stat-cube text-streak">
+                            <span class="cube-icon">Ofensiva</span>
+                            <h3 id="userStreak">39</h3>
+                            <p>Dias Seguidos</p>
+                        </div>
+                        <div class="stat-cube text-xp">
+                            <span class="cube-icon">Pontos</span>
+                            <h3 id="userXpTotal">340</h3>
+                            <p>XP Total</p>
+                        </div>
+                        <div class="stat-cube text-lvl">
+                            <span class="cube-icon">Nível</span>
+                            <h3 id="userLevel">2</h3>
+                            <p>Nível Atual</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-achievements-section">
+                        <h3 class="section-sub-title">Conquistas Coletadas</h3>
+                        <div class="badges-list-vertical">
+                            <div class="achievement-item">
+                                <span class="achievement-badge">[C1]</span>
+                                <div class="achievement-details">
+                                    <h4>Lenha na Fogueira</h4>
+                                    <p>Complete uma ofensiva contínua de estudos ecológicos.</p>
+                                </div>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-badge">[C2]</span>
+                                <div class="achievement-details">
+                                    <h4>Sabe-Tudo</h4>
+                                    <p>Acumule pontos em lições da plataforma acadêmica.</p>
+                                </div>
+                            </div>
+                            <div class="achievement-item locked" id="badgeTech">
+                                <span class="achievement-badge">[C3]</span>
+                                <div class="achievement-details">
+                                    <h4>Mestre Tecnológico</h4>
+                                    <p>Conclua a trilha de TI Sustentável (Bloqueado).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
